@@ -1,0 +1,108 @@
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] arg){
+
+
+        double balance = 0;
+        boolean isRunning = true;
+        int choice;
+
+        while(isRunning){
+
+            System.out.println("<<<<<<<<>>>>>>>");
+            System.out.println("BANKING PROGRAM");
+            System.out.println("<<<<<<<<>>>>>>>");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Exit");
+
+            System.out.println("Enter your choice (1-4) - ");
+            choice = scanner.nextInt();
+
+            switch(choice){
+                case 1 -> showBalance(balance);
+                case 2 -> balance += deposit();
+                case 3 -> balance -= withdraw(balance);
+                case 4 -> isRunning = false;
+                default -> System.out.println("!!Invalid Choice!!");
+
+            }
+
+        }
+
+        System.out.println("<<<<<<<<>>>>>>>");
+        System.out.println("Thank You!, Have a Nice Day!!");
+        System.out.println("<<<<<<<<>>>>>>>");
+
+        scanner.close();
+
+    }
+    static void showBalance(double balance){
+        System.out.println("<<<<<<<<>>>>>>>");
+        System.out.printf("$%.2f\n", balance);
+    }
+    static double deposit(){
+
+        System.out.println("Enter the amount to be deposited - ");
+        double amount = scanner.nextDouble();
+
+        if(amount < 0){
+            System.out.println("<<<<<<<<>>>>>>>");
+            System.out.println("Amount cannot be negative!");
+            return 0;
+        }
+        else{
+            System.out.println("<<<<<<<<>>>>>>>");
+            return amount;
+
+        }
+
+
+    }
+    static double withdraw(double balance){
+
+        System.out.println("Enter the amount to be withdrawn - ");
+        double amount1 = scanner.nextDouble();
+
+        if(amount1 < 0){
+            System.out.println("<<<<<<<<>>>>>>>");
+            System.out.println("The amount cannot be negative!");
+            return 0;
+        }
+        else if(amount1 > balance){
+            System.out.println("<<<<<<<<>>>>>>>");
+            System.out.println("Insufficient Funds!");
+            return 0;
+        }
+        else{
+            System.out.println("<<<<<<<<>>>>>>>");
+            return amount1;
+        }
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
