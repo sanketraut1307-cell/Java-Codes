@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Switch_Case {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String Choice;
+
+        do {
+            System.out.println("Enter the fruit name - ");
+            String Fruit = scanner.nextLine();
+
+            switch (Fruit) {
+                case "Mango" -> System.out.println("King of Fruits!");
+                case "Apple" -> System.out.println("I Hate it!");
+                case "Banana" -> System.out.println("Potassium!");
+                case "Kiwi" -> System.out.println("Expensive");
+                default -> System.out.println("Enter valid Fruit!");
+            }
+            System.out.println("Do you want to continue (yes/no) - ");
+            Choice = scanner.nextLine();
+
+        }while(Choice.equalsIgnoreCase("yes"));
+
+        System.out.println("Program Ended!!");
+        scanner.close();
+
+
+
+
+
+    }
+}
