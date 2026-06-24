@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Armstrong_Check {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String checkAgain;
+
+        System.out.println("<<< Armstrong Number Check >>>");
+
+        do {
+            System.out.println("Enter number - ");
+            int n = scanner.nextInt();
+            int n1 = n;
+
+            int a = n % 10;
+            n = n / 10;
+
+            int b = n % 10;
+            n = n / 10;
+
+            int c = n % 10;
+
+
+            if(isArmstrong(a,b,c,n1)){
+                System.out.println("The number is a Armstrong number!");
+            }
+            else{
+                System.out.println("It is not a Armstrong number!");
+            }
+
+            System.out.print("Want to play again? (yes/no) - ");
+            checkAgain = scanner.next().toLowerCase();
+        }while (checkAgain.equals("yes"));
+
+
+    }
+        static boolean isArmstrong(int a, int b, int c ,int n1){
+            int result = (a * a * a) + (b * b * b) + (c * c * c);
+            return result == n1;
+        }
+
+
+}
