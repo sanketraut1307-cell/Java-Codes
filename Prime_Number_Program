@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Prime_Number {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String CheckAgain;
+
+        do {
+            System.out.println("<<< Prime Number Check >>>");
+            System.out.print("Enter number - ");
+
+            int n = scanner.nextInt();
+
+            if (isPrime(n)) {
+                System.out.println("Prime Number");
+            } else {
+                System.out.println("Not a Prime Number");
+            }
+
+            System.out.print("Want to play again? (yes/no) - ");
+            CheckAgain = scanner.next().toLowerCase();
+
+        } while (CheckAgain.equals("yes"));
+
+        scanner.close();
+    }
+
+    static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        int c = 2;
+        while (c * c <= n) {
+            if (n % c == 0) {
+                return false;
+            }
+            c++;
+        }
+
+        return true;
+    }
+}
